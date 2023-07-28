@@ -1,6 +1,7 @@
 package com.example.test.serviceImpl;
 
 import com.example.test.bean.UserBean;
+import com.example.test.enmu.Request;
 import com.example.test.mapper.UserMapper;
 import com.example.test.requestJson.Format;
 import com.example.test.service.UserService;
@@ -19,9 +20,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public Format getUserById(int id) {
         UserBean userBean = userMapper.userbyId(id);
+        Request request = Request.SUCCESS;
         System.out.println(userBean);
         Format format = new Format();
-        format.setCode(0);
+        format.setCode(request.getCode());
         format.setMsg("success");
         format.setData(userBean);
         return format;
@@ -30,49 +32,47 @@ public class UserServiceImpl implements UserService {
     @Override
     public Format getAllUser() {
         List<UserBean> alluserBean = userMapper.getAllUser();
+        Request request = Request.SUCCESS;
         Format format = new Format();
-        format.setCode(0);
+        format.setCode(request.getCode());
         format.setMsg("success");
         format.setData(alluserBean);
         return format;
     }
 
-    @Override
-    public Format addUser(String username, String password) {
-        int row = userMapper.addUser(username, password);
+    private Format getFormat(int row) {
         Format format = new Format();
-        if (row > 0){
-            format.setCode(0);
+        if (row > 0) {
+            Request request = Request.SUCCESS;
+            format.setCode(request.getCode());
             format.setMsg("success");
-        }else {
-            format.setCode(1);
+        } else {
+            Request request = Request.ERROR;
+            format.setCode(request.getCode());
             format.setMsg("fail");
         }
         return format;
     }
+    @Override
+    public Format addUser(String username, String password) {
+        int row = userMapper.addUser(username, password);
+        return getFormat(row);
+    }
 
     @Override
-    public Format updateUser(String username, String password,int id) {
-        int row = userMapper.updateUser(username,password,id);
-        Format format = new Format();
-        if (row > 0){
-            format.setCode(0);
-            format.setMsg("success");
-        }else {
-            format.setCode(1);
-            format.setMsg("fail");
-        }
-        return format;
+    public Format updateUser(String username, String password, int id) {
+        int row = userMapper.updateUser(username, password, id);
+        return getFormat(row);
     }
 
     @Override
     public Format deleteUser(int id) {
         int row = userMapper.deleteUser(id);
         Format format = new Format();
-        if (row > 0){
+        if (row > 0) {
             format.setCode(0);
             format.setMsg("success");
-        }else {
+        } else {
             format.setCode(1);
             format.setMsg("fail");
         }
