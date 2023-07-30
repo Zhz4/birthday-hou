@@ -19,3 +19,23 @@ spring:
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.example.test.bean
+
+#操作oss需要的一些参数
+#aliyun:
+#  oss:
+#    accessKeyId: LTAI5t6r23uBpPNcsUp1Vzt5 # 阿里云的accessKeyId
+#    accessKeySecret: Y6LSQA0cRFf7jzkT6dsDijOeB1yTYZ    # accessKey 密码
+#    endpoint: oss-cn-shenzhen.aliyuncs.com
+#    bucketName: my-photos-ts   # bucket 名称
+#    policy:
+#      expire: 300 # 签名有效期(S)
+#    maxSize: 10 # 上传文件大小(M)
+#    callback: http://localhost:8080/aliyun/oss/callback # 文件上传成功后的回调地址
+#    dir:
+#      prefix: https://my-photos-ts.oss-cn-shenzhen.aliyuncs.com/image/ # 上传文件夹路径前缀
+
+oss:
+  endpoint: oss-cn-shenzhen.aliyuncs.com
+  accessKeyId: LTAI5t6r23uBpPNcsUp1Vzt5
+  accessKeySecret: Y6LSQA0cRFf7jzkT6dsDijOeB1yTYZ
+  bucketName: my-photos-ts
