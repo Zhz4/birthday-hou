@@ -1,7 +1,11 @@
 package com.example.test.controller;
 
+import com.example.test.requestJson.Format;
 import com.example.test.service.OSSService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.*;
@@ -19,23 +23,7 @@ public class FileController {
     private OSSService ossService;
 
     @PostMapping("/upload")
-    public String uploadFile(@RequestParam("file") MultipartFile file) {
+    public Format uploadFile(@RequestParam("file") MultipartFile file) {
         return ossService.uploadFile(file);
-    }
-    @GetMapping("/download/{fileName}")
-    public void downloadFile(@PathVariable("fileName") String fileName, HttpServletResponse response) {
-        InputStream inputStream = ossService.downloadFile(fileName);
-        if (inputStream !=
-                null) {
-            try {
-                StreamUtils.copy(inputStream, response.getOutputStream());
-                response.setContentType("application/octet-stream");
-                response.flushBuffer();
-            } catch (IOException e) {
-                // 处理下载失败的逻辑
-            }
-        } else {
-            // 处理文件不存在的逻辑
-        }
     }
 }
