@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 @RestController
-@RequestMapping("/files")
+@RequestMapping("/oss")
 public class FileController {
 
     @Autowired

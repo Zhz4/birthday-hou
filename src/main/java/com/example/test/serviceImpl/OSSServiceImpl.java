@@ -75,16 +75,15 @@ public class OSSServiceImpl implements OSSService {
 
             // 匹配文件格式
             String suffix = fileName.substring(fileName.lastIndexOf("."));
-            if (!suffix.equals(".jpg") && !suffix.equals(".png") && !suffix.equals(".jpeg")) {
-                Request request = Request.ERROR;
-                format.setCode(request.getCode());
-                format.setMsg("上传失败");
-                return format;
+            if (suffix.equals(".jpg") || suffix.equals(".png") || suffix.equals(".jpeg")) {
+                PutObjectResult putObjectRequest = ossClient.putObject(bucketName, "image/" + uniqueHexCode + suffix, file.getInputStream(), objectMetadata);
+                format.setData(putObjectRequest);
+            }else if (suffix.equals(".mp4") || suffix.equals(".avi") || suffix.equals(".mov")) {
+                PutObjectResult putObjectRequest = ossClient.putObject(bucketName, "video/" + uniqueHexCode + suffix, file.getInputStream(), objectMetadata);
+                format.setData(putObjectRequest);
             }
-            PutObjectResult putObjectRequest = ossClient.putObject(bucketName, "image/" + uniqueHexCode + suffix, file.getInputStream(), objectMetadata);
             Request request = Request.SUCCESS;
             format.setCode(request.getCode());
-            format.setData(putObjectRequest);
             format.setMsg("上传成功");
             return format;
         } catch (IOException e) {

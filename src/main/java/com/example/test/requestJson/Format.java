@@ -6,7 +6,7 @@ public class Format {
 
     private String msg;
 
-    public Format(int code, Object data) {
+    public Format(int code, Object data, String msg) {
         this.code = code;
         this.data = data;
         this.msg = msg;
