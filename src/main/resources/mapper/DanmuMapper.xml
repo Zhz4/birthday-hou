@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.test.mapper.DanmuMapper">
+    <insert id="add" parameterType="com.example.test.bean.danmuBean">
+        insert into `danmu` (id,content,time,setup,ip)
+        VALUES (#{id},#{content},#{time},#{setup},#{ip})
+    </insert>
+    <select id="get" resultType="com.example.test.resultType.DamuMapperGet">
+        select content, setup from `danmu`
+    </select>
+</mapper>
