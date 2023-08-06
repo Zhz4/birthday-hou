@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
+
 @RestController
 @RequestMapping("/danmu")
 public class danmuController {
@@ -17,8 +18,15 @@ public class danmuController {
         String ip = request.getRemoteAddr();
         return danmuSerive.add(content,setup,ip);
     }
+
     @GetMapping("/get")
     public Format get(){
         return danmuSerive.get();
     }
+
+    @GetMapping("/getDanmuCount")
+    public Format getDanmuCount(){
+        return danmuSerive.getDanmuCount();
+    }
+
 }

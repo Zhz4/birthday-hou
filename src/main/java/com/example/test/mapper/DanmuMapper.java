@@ -7,6 +7,6 @@ import java.util.List;
 
 @Mapper
 public interface DanmuMapper {
-    int add(String id, String content, String ip, String setup, String time);
+    int add(String id, String content, String ip, String setup, String time,String address);
     List<danmuBean> get();
 }

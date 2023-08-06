@@ -9,7 +9,11 @@ spring:
       max-request-size: 200MB
   datasource:
     name: test
+#    name: weiwei
     url: jdbc:mysql://localhost:3306/test?useSSL=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+#    url: jdbc:mysql://47.120.4.169:3306/weiwei?useSSL=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+#    username: weiwei
+#    password: HFyZ4RJTW7sYXjeP
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -46,3 +50,7 @@ oss:
   accessKeyId: LTAI5t6r23uBpPNcsUp1Vzt5
   accessKeySecret: Y6LSQA0cRFf7jzkT6dsDijOeB1yTYZ
   bucketName: my-photos-ts
+server:
+  port: 7070
+
+resourcesPath: src/main/resources/uploadFile

@@ -18,4 +18,9 @@ public interface DanmuSerive {
      * @return 弹幕内容
      */
     Format get();
+    /**
+     * 获取弹幕数量
+     * @return 弹幕数量
+     */
+    Format getDanmuCount();
 }

@@ -13,7 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 
 @RestController
-@RequestMapping("/filelocal")
+@RequestMapping(value = "/filelocal",produces = "application/json;charset=UTF-8")
 public class FilelocalController {
 
     //将Service注入Web层
