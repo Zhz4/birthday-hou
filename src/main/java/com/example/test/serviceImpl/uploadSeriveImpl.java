@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.util.UUID;
 
 @Service
 public class uploadSeriveImpl implements UploadSerive {
@@ -20,10 +21,10 @@ public class uploadSeriveImpl implements UploadSerive {
     private String resourcesPath;
 
     private String generateNewFilename(String originalFilename) {
-        // 在这里编写生成新文件名的逻辑，可以使用时间戳、随机数等来生成唯一的新文件名
-        // 示例：在原文件名前加上时间戳
-        long timestamp = System.currentTimeMillis();
-        return timestamp + "_" + originalFilename;
+        // 获取文件后缀
+        String suffix = originalFilename.substring(originalFilename.lastIndexOf("."));
+        // 生成新的文件名
+        return UUID.randomUUID().toString().replace("-", "") +suffix;
     }
 
     @Override
@@ -44,15 +45,15 @@ public class uploadSeriveImpl implements UploadSerive {
                 String originalFilename = file.getOriginalFilename();
                 String newFilename = generateNewFilename(originalFilename);
                 // 匹配文件格式
-                String suffix = originalFilename.substring(originalFilename.lastIndexOf("."));
+                String suffix = newFilename.substring(newFilename.lastIndexOf("."));
                 if (suffix.equals(".jpg") || suffix.equals(".png") || suffix.equals(".jpeg")) {
                     file.transferTo(new File(imageDir.getAbsolutePath() + File.separator + newFilename));
                     fileSuccess += 1;
                     uploadImageMapper.addimage("/uploadFile/image/" + newFilename);
                 } else if (suffix.equals(".mp4") || suffix.equals(".avi") || suffix.equals(".mov")) {
-                    file.transferTo(new File("/uploadFile/video/" + newFilename));
+                    file.transferTo(new File(videoDir.getAbsolutePath() + File.separator+ newFilename));
                     fileSuccess += 1;
-                    uploadImageMapper.addimage(imageDir.getAbsolutePath() + File.separator + newFilename);
+                    uploadImageMapper.addvideo("/uploadFile/video/" + newFilename);
                 }
             }
             Request code = Request.SUCCESS;

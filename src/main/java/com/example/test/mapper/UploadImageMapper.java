@@ -1,5 +1,8 @@
 package com.example.test.mapper;
 
 public interface UploadImageMapper {
-    int addimage(String path);
+    void addimage(String path);
+
+    void addvideo(String path);
+
 }

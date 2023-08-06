@@ -8,14 +8,14 @@ spring:
       # 设置总上传的文件大小
       max-request-size: 200MB
   datasource:
-    name: test
-#    name: weiwei
-    url: jdbc:mysql://localhost:3306/test?useSSL=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
-#    url: jdbc:mysql://47.120.4.169:3306/weiwei?useSSL=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
-#    username: weiwei
-#    password: HFyZ4RJTW7sYXjeP
-    username: root
-    password: root
+#    name: test
+    name: weiwei
+#    url: jdbc:mysql://localhost:3306/test?useSSL=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://47.120.4.169:3306/weiwei?useSSL=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+    username: weiwei
+    password: HFyZ4RJTW7sYXjeP
+#    username: root
+#    password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       connection-timeout: 60000   # 数据库连接超时时间,默认30秒,即30000

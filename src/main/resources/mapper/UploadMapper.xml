@@ -5,4 +5,8 @@
         insert into `image` (path)
         VALUES (#{path})
     </insert>
+    <select id="addvideo" parameterType="com.example.test.bean.videoBean">
+        insert into `video` (path)
+        VALUES (#{path})
+    </select>
 </mapper>
