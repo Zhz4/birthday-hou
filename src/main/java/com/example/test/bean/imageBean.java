@@ -1,9 +1,12 @@
 package com.example.test.bean;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class imageBean {
     private int id;
     private String path;
-    private String flag;
+    private int flag;
 
     public int getId() {
         return id;
@@ -21,11 +24,11 @@ public class imageBean {
         this.path = path;
     }
 
-    public String getFlag() {
+    public int getFlag() {
         return flag;
     }
 
-    public void setFlag(String flag) {
+    public void setFlag(int flag) {
         this.flag = flag;
     }
 }

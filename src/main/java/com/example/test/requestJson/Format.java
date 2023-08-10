@@ -1,5 +1,8 @@
 package com.example.test.requestJson;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class Format {
     private  int code;
     private Object data;
