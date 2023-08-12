@@ -6,6 +6,6 @@
         VALUES (#{id},#{content},#{ip},#{time},#{address})
     </insert>
     <select id="getWish" resultType="com.example.test.bean.wishBean">
-        select content, time from `wish` where flag= 0
+        select content, time, address from `wish` where flag= 0 order by time desc
     </select>
 </mapper>

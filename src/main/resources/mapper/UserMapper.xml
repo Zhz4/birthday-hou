@@ -31,4 +31,11 @@
         where id = #{id}
     </delete>
 
+    <select id="login" parameterType="com.example.test.bean.UserBean" resultType="com.example.test.bean.UserBean">
+        select *
+        from weiwei.user
+        where username = #{username}
+          and password = #{password}
+    </select>
+
 </mapper>

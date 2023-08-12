@@ -66,4 +66,11 @@ public class UserController {
         return userService.deleteUser(id);
     }
 
+
+    @PostMapping("/login")
+    @ResponseBody
+    public Format login(@RequestParam("username") String username,@RequestParam("password") String password){
+        return userService.login(username,password);
+    }
+
 }

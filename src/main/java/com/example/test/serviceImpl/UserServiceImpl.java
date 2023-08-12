@@ -79,4 +79,20 @@ public class UserServiceImpl implements UserService {
         return format;
     }
 
+    @Override
+    public Format login(String username, String password) {
+        UserBean userBean = userMapper.login(username, password);
+        Format format = new Format();
+        if (userBean != null) {
+            Request request = Request.SUCCESS;
+            format.setCode(request.getCode());
+            format.setMsg("success");
+        } else {
+            Request request = Request.ERROR;
+            format.setCode(request.getCode());
+            format.setMsg("密码错误，请重新输入");
+        }
+        return format;
+    }
+
 }

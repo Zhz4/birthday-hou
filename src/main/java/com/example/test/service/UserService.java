@@ -12,4 +12,6 @@ public interface UserService {
     Format updateUser(String username, String password,int id);
 
     Format deleteUser(int id);
+
+    Format login(String username, String password);
 }

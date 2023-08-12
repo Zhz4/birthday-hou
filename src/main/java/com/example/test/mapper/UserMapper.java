@@ -13,4 +13,6 @@ public interface UserMapper {
     int updateUser(String username,String password,int id);
 
     int deleteUser(int id);
+
+    UserBean login(String username,String password);
 }
