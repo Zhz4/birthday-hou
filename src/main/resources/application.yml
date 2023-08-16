@@ -8,14 +8,10 @@ spring:
       # 设置总上传的文件大小
       max-request-size: 200MB
   datasource:
-#    name: test
-    name: weiwei
-#    url: jdbc:mysql://localhost:3306/test?useSSL=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
-    url: jdbc:mysql://47.120.4.169:3306/weiwei?useSSL=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
-    username: weiwei
-    password: HFyZ4RJTW7sYXjeP
-#    username: root
-#    password: root
+    name: # 数据库名
+    url: # 数据地址
+    username: # 账号
+    password: # 密码
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       connection-timeout: 60000   # 数据库连接超时时间,默认30秒,即30000
@@ -31,26 +27,5 @@ mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.example.test.bean
 
-#操作oss需要的一些参数
-#aliyun:
-#  oss:
-#    accessKeyId: LTAI5t6r23uBpPNcsUp1Vzt5 # 阿里云的accessKeyId
-#    accessKeySecret: Y6LSQA0cRFf7jzkT6dsDijOeB1yTYZ    # accessKey 密码
-#    endpoint: oss-cn-shenzhen.aliyuncs.com
-#    bucketName: my-photos-ts   # bucket 名称
-#    policy:
-#      expire: 300 # 签名有效期(S)
-#    maxSize: 10 # 上传文件大小(M)
-#    callback: http://localhost:8080/aliyun/oss/callback # 文件上传成功后的回调地址
-#    dir:
-#      prefix: https://my-photos-ts.oss-cn-shenzhen.aliyuncs.com/image/ # 上传文件夹路径前缀
-
-oss:
-  endpoint: oss-cn-shenzhen.aliyuncs.com
-  accessKeyId: LTAI5t6r23uBpPNcsUp1Vzt5
-  accessKeySecret: Y6LSQA0cRFf7jzkT6dsDijOeB1yTYZ
-  bucketName: my-photos-ts
-server:
-  port: 7070
 
 resourcesPath: src/main/resources/uploadFile
