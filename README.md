@@ -18,19 +18,6 @@
 前端： vue3 + ts + scss + Element-Plus  
 后端： springboot2  
 服务的：阿里云centos服务器+七牛云对象存储
-## 项目使用
-安装依赖包
-```xshell
-npm install
-```
-进入到 `util/request.ts` 中修改后端接口地址
-```ts
-baseURL: "xxxx", // 地址
-```
-运行项目
-```xShell
-npm run dev
-```
 ## 项目截图
 ### PC 端截图
 <div align="center">
