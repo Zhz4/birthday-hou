@@ -6,6 +6,7 @@
         VALUES (#{id},#{content},#{time},#{setup},#{ip},#{address})
     </insert>
     <select id="get" resultType="com.example.test.bean.danmuBean">
-        select content, setup from `danmu` where flag= 0
+        select content, setup,time,address from `danmu` where flag= 0
+        order by time desc
     </select>
 </mapper>
